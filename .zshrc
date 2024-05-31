@@ -1,5 +1,9 @@
-alias reload="source ~/.zshrc"
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+HISTFILE=~/.zsh_history
+
 alias config="nvim ~/.zshrc"
+alias reload="source ~/.zshrc"
 alias nvim="~/nvim.appimage"
 alias update="sudo apt update && sudo apt upgrade -y"
 
@@ -12,3 +16,6 @@ nvim_config() {
 }
 
 eval "$(starship init zsh)"
+
+HISTSIZE=10000
+SAVEHIST=10000

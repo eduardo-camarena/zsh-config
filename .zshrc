@@ -1,5 +1,7 @@
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
 HISTFILE=~/.zsh_history
 
 alias config="nvim ~/.zshrc"
@@ -15,7 +17,9 @@ nvim_config() {
   unset CURRENT_DIR;
 }
 
-eval "$(starship init zsh)"
-
 HISTSIZE=10000
 SAVEHIST=10000
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
